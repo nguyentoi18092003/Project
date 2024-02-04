@@ -1,11 +1,16 @@
 const express = require('express')
 // import thu vien express vao file js
+require('dotenv').config();
+
 const route=require("./routes/client/index.route.js")
 // import cai router nay vao, ten router la mk tu dat
 // file nay cx cap luon roi nen dung mot dau cham
 const app = express()
 // khởi tạo app, đặt một cái cổng
-const port = 3000
+const port = process.env.PORT;
+// muon dung dc thu vien dotenv phai nhung vao
+// de dung dc env phai tai thu vien npm i dotenv
+// PORT la ten bien minh dinh nghia ben file .env
 //http://localhost:3000 cong 3000
 app.set("views","./views");
 app.set("view engine","pug");
