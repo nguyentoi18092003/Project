@@ -16,6 +16,8 @@ app.set("views","./views");
 app.set("view engine","pug");
 // cau hinh thang pug vao trong du an
 // thang pug no se lay ra cac file trong thu muc view, thu muc view la do mk dat ten
+app.use(express.static("public"))
+// cau lenh nay dung de public file tinhx ra ngoai, public trong cau lenh la floder mk dat (floder mk muon public)
 route(app)
 // goi ham de no dan sang file route, treen kia ms chi la import thu vien, xuong day phai goi ham nua 
 
