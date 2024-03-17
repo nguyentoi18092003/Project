@@ -4,21 +4,21 @@ html
       title #{pageTitle}
         //-pageTile là biêns mk định nghĩa trong file home.controller.js
          link(rel="stylesheet",href="/css/style.css")
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
-    //- day la nhung link bootrap4
-    link( rel="stylesheet", href="/css/style.css")
+      link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css")
+       //- day la nhung link bootrap4
+      link( rel="stylesheet", href="/css/style.css")
     //-nhung file css vao, file css de o file public
     //-dau/ da the hien di vao file public(Kieu no the hien cho public) giong nhu o file nao do no cx tu dong di vao thu muc view roi
     body
-       include ../partials/header.pug
+      include ../partials/header.pug
         //-nhung file header vào
-        block main
+      block main
 
-       include ../partials/footer.pug
-       script (src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" )
-       script (src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" )
+      include ../partials/footer.pug
+      script (src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" )
+      script (src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" )
        //-css cas kieu i
-       script(src="/js/scrip.js")
+      script(src="/js/scrip.js")
        //- nhung file scrip.js
 
 

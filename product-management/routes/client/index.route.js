@@ -6,7 +6,7 @@ module.exports = (app)=>{
     app.get('/', (req, res) => {
         res.render("client/pages/home/index")
         // cau lenhj render no tu dong vao thu muc view roi nen la mk vao thang client, do app set o tren mk da cau hinh vao thu muc view
-      
+      //test
     })
     app.use("/products",productRoutes);
     app.use("/home",homeRoutes);

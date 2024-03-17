@@ -1,1 +1,21 @@
-header Header
+header.header
+    .container 
+        //-class container cách bên trái 1 đoạn bên phải 1 đoạn cho nó đỡ sát lề
+        .row.align-items-center 
+            .col-3 
+                //-chia 3 cot
+                .inner-logo 
+                    //-logo
+                    a(href="/")
+                        img(src="/images/logo.svg",alt="Logo")
+                            //- neu click vao no se link sang trang chu
+            .col-9  
+                //- chia 9 cot
+                .inner-menu 
+                    ul 
+                        li
+                            a(href="/") Trang chủ
+                            //- neu an vao chu trang chủ nó sẽ link sang trang chủ 
+                        li
+                            a(href="/products") Sản phẩm
+                            //- nếu ấn vào chữ product sẽ link sang trang productss
