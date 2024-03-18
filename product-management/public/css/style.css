@@ -51,3 +51,47 @@
     border-radius:8px;
 
 }
+/* css cho cái ảnh + lang nhang tu them*/
+.container.my-3 .inner-image img{
+    height:100px;
+    width:auto;
+
+}
+.container.my-3 .box-head{
+    color:green;
+}
+.container.my-3 .inner-content .inner-title{
+    font-weight:700;
+    /* color:yellow; */
+}
+.container.my-3 .inner-content .inner-price-new{
+    color:green;
+    font-weight:700;
+    font-size:30px;
+}
+.container.my-3 .inner-content .inner-price-old{
+   color:red;
+   text-decoration: line-through; 
+   font-weight:700;
+    font-size:25px;
+    
+}
+.container.my-3 .inner-content .inner-discount{
+    background: red;
+    border-radius: 45px;
+    width:70px;
+    text-align: center;
+    color:white;
+}
+.container.my-3 .row .product-item{
+width:152px;
+/* background: red;; */
+}
+
+.row.align-items-center .inner-menu ul{
+    display: flex;
+    list-style-type: none;
+}
+.row.align-items-center .inner-menu ul li{
+    margin-left: 30px;
+}
