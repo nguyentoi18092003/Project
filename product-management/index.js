@@ -5,6 +5,8 @@ require("dotenv").config();
 // cx la 2 trong nhung cau lenhj bat buoc de ket noi database
 const database=require("./config/database");
 // nhung file ket noi database vao
+const systemConfig=require("./config/system");
+// import de cai /admin co the dung trong tat ca cac file pug luon
 const route=require("./routes/client/index.route.js")
 const routeAdmin=require("./routes/admin/index.route.js")
 // import cai router nay vao, ten router la mk tu dat
@@ -22,6 +24,8 @@ app.set("views","./views");
 app.set("view engine","pug");
 // cau hinh thang pug vao trong du an
 // thang pug no se lay ra cac file trong thu muc view, thu muc view la do mk dat ten
+app.locals.prefixAdmin=systemConfig.prefixAdmin;
+// sau khi import+goi cau lenhj nay cai /admin do co the import o tat ca cac file pug luon
 app.use(express.static("public"))
 // cau lenh nay dung de public file tinhx ra ngoai, public trong cau lenh la floder mk dat (floder mk muon public)
 route(app)
