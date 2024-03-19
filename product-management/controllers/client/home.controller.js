@@ -1,3 +1,5 @@
+//[GET] /dashboard
+// dong comment dau chi de goi nho duong dan de link ra page nay
 module.exports.index=(req,res)=>{
     //been file index.route mk da co phan /home roi, thi ben day tiep tuc noi sau prodct
     // link sang trang product co link la /home/

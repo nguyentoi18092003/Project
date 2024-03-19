@@ -1,5 +1,7 @@
 const Product =require("../../models/product.model");
 //import de vao dile product model de lay du lieu
+//[GET] /products
+// dong comment dau chi de goi nho duong dan de link ra page nay
 module.exports.index= async(req,res)=>{
     //been file index.route mk da co phan /product roi, thi ben day tiep tuc noi sau prodct
     // link sang trang product co link la /product/
