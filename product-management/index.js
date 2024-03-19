@@ -8,7 +8,7 @@ const database=require("./config/database");
 const route=require("./routes/client/index.route.js")
 // import cai router nay vao, ten router la mk tu dat
 // file nay cx cap luon roi nen dung mot dau cham
-database.connect();
+database.connect(); 
 //  goi cau lenh ket noi den database
 const app = express()
 // khởi tạo app, đặt một cái cổng
