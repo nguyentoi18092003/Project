@@ -15,5 +15,7 @@ module.exports.dashboard=(req,res)=>{
     //     pageTitle:"Trang chủ"
         
     // } );
-    res.send("Trang tong quan")
+    res.render("admin/pages/dashboard/index",{
+        pageTitle:"TRang tổng quan"
+    });
 }
