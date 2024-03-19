@@ -95,3 +95,11 @@ width:152px;
 .row.align-items-center .inner-menu ul li{
     margin-left: 30px;
 }
+.product-item img {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá kích thước của phần tử chứa */
+    height: auto; /* Duy trì tỷ lệ khung hình khi thay đổi kích thước */
+    display: block; /* Loại bỏ khoảng trắng dư thừa dưới dạng phần tử inline */
+    margin: 0 auto; /* Canh giữa ảnh trong phần tử chứa */
+    border-radius: 5px; /* Độ cong viền */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Hiển thị bóng đổ nhẹ */
+}

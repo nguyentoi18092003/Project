@@ -10,12 +10,17 @@ module.exports.index= async(req,res)=>{
         //ban dau k cos gi trong find la lay ra tat ca
         // co status tuc la chi lay ra cai co status la active...
     });
-    console.log(products);
+    const newProducts = products.map(item=>{
+        item.priceNew=(item.price*(100-item.discountPercentage)/100).toFixed(0);
+        return item;
+    })
+    //xu li logic tinh toan gia ms, viet ben cho pug cx dc nhuwng nen viet trong nay
+    console.log(newProducts);
 
     res.render("client/pages/products/index",{
         pageTitle:"Danh sach san pham",
         //controller là lấy data trả về cho view, nên ta có thể thêm objetc để cấu hình cho tiêu đề ở giao diện linh hoạt hơn
-        products:products
+        products:newProducts
     });
     // giai thich ham render ben file goc giong ben tren
    }
