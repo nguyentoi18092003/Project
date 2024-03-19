@@ -1,3 +1,4 @@
+
 const Product =require("../../models/product.model");
 //import de vao dile product model de lay du lieu
 //[GET] /products
