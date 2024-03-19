@@ -13,10 +13,16 @@
    
 
 // }
+
+// import cai bien he thong cu the o day la duoi admin dc viet tring file sytem
+const systemConfig=require("../../config/system.js")
+// import cai file chua hang admin
 const dashboardRoutes=require("./dashboard.route.js")
 //nhung
 module.exports = (app)=>{
-    const PATH_ADMIN="/admin";
+    const PATH_ADMIN=systemConfig.prefixAdmin;
+    // PATH_ADMIN la ten khac ,day la dang lay ra hang /admin
+    // khai bao 1 bien de lay ra dc admin dc khai bao trong file kia
     app.use(PATH_ADMIN+"/dashboard",dashboardRoutes);
     //su dung
 }
