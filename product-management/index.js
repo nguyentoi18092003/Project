@@ -6,6 +6,7 @@ require("dotenv").config();
 const database=require("./config/database");
 // nhung file ket noi database vao
 const route=require("./routes/client/index.route.js")
+const routeAdmin=require("./routes/admin/index.route.js")
 // import cai router nay vao, ten router la mk tu dat
 // file nay cx cap luon roi nen dung mot dau cham
 database.connect(); 
@@ -24,6 +25,8 @@ app.set("view engine","pug");
 app.use(express.static("public"))
 // cau lenh nay dung de public file tinhx ra ngoai, public trong cau lenh la floder mk dat (floder mk muon public)
 route(app)
+routeAdmin(app)
+
 // goi ham de no dan sang file route, treen kia ms chi la import thu vien, xuong day phai goi ham nua 
 
 app.listen(port, () => {
