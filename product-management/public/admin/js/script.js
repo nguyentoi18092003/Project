@@ -24,3 +24,25 @@ if(buttonsStatus.length>0){
     });
 });
 }
+//end button status
+// Form Search
+const formSearch=document.querySelector("#form-search");
+if(formSearch){
+    let url=new URL(window.location.href);
+    formSearch.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        // ngan chan su kien mac dinh de no khoi load lai trang, cau lenh giup loc theo nhieu tieu chi(VD nhu bai nay la car hoat dong va ten mk nhap vao o input)
+        const keyword=e.target.elements.keyword.value;
+        
+        if(keyword){
+            url.searchParams.set("keyword",keyword);
+
+        }else{
+            url.searchParams.delete("keyword");
+            // khi k nhap ma lai an tim
+        }
+        window.location.href=url.href;
+
+    });
+}
+// ENd formsearch

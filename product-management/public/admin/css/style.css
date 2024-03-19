@@ -5,6 +5,7 @@
     position:sticky;
     top:0;
     z-index:999;
+    max-width: 1350px;
 }
 
 .header .inner-logo a{
@@ -52,4 +53,24 @@
 }
 .inner-menu {
     height:1000px;
+}
+
+.form-control {
+    border-radius: 20px; /* Độ cong viền */
+}
+
+/* CSS cho nút Tìm */
+
+
+/* CSS cho phần input group */
+.input-group {
+    max-width: 330px; /* Độ rộng tối đa */
+    margin: 0 auto; /* Canh giữa */
+}
+
+/* .table.table-hover.table-sm {
+    max-width: 1000px;
+} */
+.card.mb-3{
+    max-width: 1040px;
 }
