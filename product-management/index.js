@@ -1,10 +1,15 @@
 const express = require('express')
 // import thu vien express vao file js
-require('dotenv').config();
 
+require("dotenv").config();
+// cx la 2 trong nhung cau lenhj bat buoc de ket noi database
+const database=require("./config/database");
+// nhung file ket noi database vao
 const route=require("./routes/client/index.route.js")
 // import cai router nay vao, ten router la mk tu dat
 // file nay cx cap luon roi nen dung mot dau cham
+database.connect();
+//  goi cau lenh ket noi den database
 const app = express()
 // khởi tạo app, đặt một cái cổng
 const port = process.env.PORT;
