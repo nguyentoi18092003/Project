@@ -18,6 +18,7 @@
 const systemConfig=require("../../config/system.js")
 // import cai file chua hang admin
 const dashboardRoutes=require("./dashboard.route.js")
+const productdRoutes=require("./product.route.js")
 //nhung
 module.exports = (app)=>{
     const PATH_ADMIN=systemConfig.prefixAdmin;
@@ -25,4 +26,5 @@ module.exports = (app)=>{
     // khai bao 1 bien de lay ra dc admin dc khai bao trong file kia
     app.use(PATH_ADMIN+"/dashboard",dashboardRoutes);
     //su dung
+    app.use(PATH_ADMIN+"/products",productdRoutes);
 }
