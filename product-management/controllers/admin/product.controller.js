@@ -57,3 +57,13 @@ module.exports.index= async(req,res)=>{
     });
     
 }
+//[GET]/admin/products/change-status/:status/:id
+module.exports.changeStatus=(req,res)=>{
+    // res.send("OK")
+    console.log(req.params);
+    const status=req.params.status;
+    const id=req.params.id;
+    
+    res.send(`${status} - ${id}`);
+    
+}
