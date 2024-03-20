@@ -1,38 +1,14 @@
 const Product=require("../../models/product.model");
 //import model vao vi model la khung de lay du lieu, muc model nay duco cau hinh khi mk lam ben client r
-
+const filterStatusHelper= require("../../helpers/filterStatus");
+//import file ben helper vao
 //[GET] /admin/products
 // dong comment dau chi de goi nho duong dan de link ra page nay
 module.exports.index= async(req,res)=>{
     // tao khung cho nut bam co the sau nay co nhieu nut bam, k nhe khi sua phai sua ben ca fornt e nen viet ben nay sua cho tien
-    let filterStatus=[
-        {
-            name:"Tất cả",
-            status:"",
-            class:""
-        },
-        {
-            name:"Hoạt động",
-            status:"active",
-            class:""
-        },
-        {
-            name:"Dừng hoạt động",
-            status:"inactive",
-            class:""
-        }
-
-    ];
-    if(req.query.status){
-        const index=filterStatus.findIndex(item=>item.status==req.query.status);
-        filterStatus[index].class="active";
-    }
-    else{
-        const index=filterStatus.findIndex(item=>item.status=="");
-        filterStatus[index].class="active";
-        //them class active
-
-    }
+    const filterStatus=filterStatusHelper(req.query);
+    //req.query ung vs query ben file helper
+    // khi trang khac ma su dung 3 thanh nay t cx chi can import roi trueyn req.query thoi
     let find={
         deleted:false
         // ơ day van lay ra tat cai deleted =false
