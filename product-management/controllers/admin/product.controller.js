@@ -5,6 +5,7 @@ const filterStatusHelper= require("../../helpers/filterStatus");
 //[GET] /admin/products
 // dong comment dau chi de goi nho duong dan de link ra page nay
 const searchHelper=require("../../helpers/search")
+const paginationHelper=require("../../helpers/pagination")
 //import file ben helper vao
 module.exports.index= async(req,res)=>{
     // tao khung cho nut bam co the sau nay co nhieu nut bam, k nhe khi sua phai sua ben ca fornt e nen viet ben nay sua cho tien
@@ -31,24 +32,16 @@ module.exports.index= async(req,res)=>{
 
     }
     //phan trang
-    let objectPagination={
+    const countProducts= await Product.countDocuments(find);
+    let objectPagination= paginationHelper(
+        {
         currentPage:1,
         // mac dinh neu k truyen page tren url thi no se mac dinh la 1 
         limitItems:4
-    };
-    if(req.query.page){
-        objectPagination.currentPage=parseInt(req.query.page);
-        
-    }
-    objectPagination.skip=(objectPagination.currentPage-1)*objectPagination.limitItems;
-    
-    //dem so san pham ma no loc dc tu find
-    const countProducts= await Product.countDocuments(find);
-    const totalPage=Math.ceil(countProducts/objectPagination.limitItems);
-    //tong so trang
-    console.log(totalPage)
-    objectPagination.totalPage=totalPage;
-    //them thuco tinh totalPage vao object objectPagination
+        },
+        req.query,
+        countProducts
+        );
     
     //end phan trang
     const products=await Product.find(find).limit(objectPagination.limitItems).skip(objectPagination.skip);
