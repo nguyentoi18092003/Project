@@ -46,3 +46,22 @@ if(formSearch){
     });
 }
 // ENd formsearch
+
+
+// pagnination
+const buttonsPagination=document.querySelectorAll("[button-pagination]");
+if(buttonsPagination){
+    let url=new URL(window.location.href);
+    buttonsPagination.forEach(button=>{
+        button.addEventListener("click",()=>{
+            const page=button.getAttribute("button-pagination");
+            console.log(page);
+
+            url.searchParams.set("page",page);
+            //set lai cai duoi page tren thanh url
+            window.location.href=url.href;
+            // chuyen huwonh sang trang do
+        });
+    });
+}
+// End pagnination
