@@ -30,7 +30,22 @@ module.exports.index= async(req,res)=>{
         find.title=objectSearch.regex;
 
     }
-    const products=await Product.find(find);
+    //phan trang
+    let objectPagination={
+        currentPage:1,
+        // mac dinh neu k truyen page tren url thi no se mac dinh la 1 
+        limitItems:4
+    };
+    if(req.query.page){
+        objectPagination.currentPage=parseInt(req.query.page);
+        
+    }
+    objectPagination.skip=(objectPagination.currentPage-1)*objectPagination.limitItems;
+    
+    console.log(objectPagination.skip)
+    
+    //end phan trang
+    const products=await Product.find(find).limit(objectPagination.limitItems).skip(objectPagination.skip);
     // console.log(products)
     res.render("admin/pages/products/index",{
         // (muc nay lien ket vs file index o ben view)
