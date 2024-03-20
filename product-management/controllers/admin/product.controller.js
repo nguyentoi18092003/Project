@@ -42,7 +42,13 @@ module.exports.index= async(req,res)=>{
     }
     objectPagination.skip=(objectPagination.currentPage-1)*objectPagination.limitItems;
     
-    console.log(objectPagination.skip)
+    //dem so san pham ma no loc dc tu find
+    const countProducts= await Product.countDocuments(find);
+    const totalPage=Math.ceil(countProducts/objectPagination.limitItems);
+    //tong so trang
+    console.log(totalPage)
+    objectPagination.totalPage=totalPage;
+    //them thuco tinh totalPage vao object objectPagination
     
     //end phan trang
     const products=await Product.find(find).limit(objectPagination.limitItems).skip(objectPagination.skip);
@@ -53,7 +59,8 @@ module.exports.index= async(req,res)=>{
         products:products,
         filterStatus: filterStatus,
         // 2 cau lenh nay la de render ra ngoai giao dien
-        keyword: objectSearch.keyword
+        keyword: objectSearch.keyword,
+        pagination:objectPagination
     });
     
 }
