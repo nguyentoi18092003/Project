@@ -4,6 +4,8 @@ const filterStatusHelper= require("../../helpers/filterStatus");
 //import file ben helper vao
 //[GET] /admin/products
 // dong comment dau chi de goi nho duong dan de link ra page nay
+const searchHelper=require("../../helpers/search")
+//import file ben helper vao
 module.exports.index= async(req,res)=>{
     // tao khung cho nut bam co the sau nay co nhieu nut bam, k nhe khi sua phai sua ben ca fornt e nen viet ben nay sua cho tien
     const filterStatus=filterStatusHelper(req.query);
@@ -23,14 +25,9 @@ module.exports.index= async(req,res)=>{
     //muon lay tat ca hay bo het tu dau ?
     }
     
-    let keyword="";
-    if(req.query.keyword){
-        //keyword trong ngoac la 1 phan trong URL, con tren kia la mk tu khai bao
-        keyword=req.query.keyword;
-        const regex =new RegExp(keyword,"i");
-        // day de xu li tim kiem theo tu khoa ,"i" la de k phan bietj hoa thuong
-        find.title=regex;
-        //add vao object find o ben tren(cho dk loc i)
+    const objectSearch=searchHelper(req.query);
+    if(objectSearch.regex){
+        find.title=objectSearch.regex;
 
     }
     const products=await Product.find(find);
@@ -41,7 +38,7 @@ module.exports.index= async(req,res)=>{
         products:products,
         filterStatus: filterStatus,
         // 2 cau lenh nay la de render ra ngoai giao dien
-        keyword: keyword
+        keyword: objectSearch.keyword
     });
     
 }
