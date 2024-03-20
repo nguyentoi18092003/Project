@@ -12,7 +12,7 @@ if(buttonsChangeStatus.length>0){
             let statusChange= statusCurrent=="active"?"inactive":"active";
            
             //cuoi cx ta dc 1 string co the hay the url o cac muc truoc
-            const action=path+`/${statusChange}/${id}`
+            const action=path+`/${statusChange}/${id}?_method=PATCH`
             formChangeStatus.action=action;
             // thay doi thuoc tinh action trong form bang string ma mk tao dc
             formChangeStatus.submit();

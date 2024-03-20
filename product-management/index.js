@@ -1,6 +1,7 @@
 const express = require('express')
 // import thu vien express vao file js
-
+const methodOverride=require('method-override');
+// import phuong thuc chuyen post thanh patch ghi de
 require("dotenv").config();
 // cx la 2 trong nhung cau lenhj bat buoc de ket noi database
 const database=require("./config/database");
@@ -20,6 +21,8 @@ const port = process.env.PORT;
 // de dung dc env phai tai thu vien npm i dotenv
 // PORT la ten bien minh dinh nghia ben file .env
 //http://localhost:3000 cong 3000
+app.use(methodOverride("_method"))
+//ghi de bien phuong thuc post thanh path
 app.set("views","./views");
 app.set("view engine","pug");
 // cau hinh thang pug vao trong du an
