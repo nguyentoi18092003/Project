@@ -47,13 +47,25 @@ module.exports.index= async(req,res)=>{
     //muon lay tat ca hay bo het tu dau ?
     }
     
+    let keyword="";
+    if(req.query.keyword){
+        //keyword trong ngoac la 1 phan trong URL, con tren kia la mk tu khai bao
+        keyword=req.query.keyword;
+        const regex =new RegExp(keyword,"i");
+        // day de xu li tim kiem theo tu khoa ,"i" la de k phan bietj hoa thuong
+        find.title=regex;
+        //add vao object find o ben tren(cho dk loc i)
+
+    }
     const products=await Product.find(find);
-    console.log(products)
+    // console.log(products)
     res.render("admin/pages/products/index",{
+        // (muc nay lien ket vs file index o ben view)
         pageTitle:"Danh sách sản phẩm",
         products:products,
-        filterStatus: filterStatus
+        filterStatus: filterStatus,
         // 2 cau lenh nay la de render ra ngoai giao dien
+        keyword: keyword
     });
     
 }

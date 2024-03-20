@@ -33,7 +33,7 @@ if(formSearch){
         e.preventDefault();
         // ngan chan su kien mac dinh de no khoi load lai trang, cau lenh giup loc theo nhieu tieu chi(VD nhu bai nay la car hoat dong va ten mk nhap vao o input)
         const keyword=e.target.elements.keyword.value;
-        
+        // lay ra gia tri ma nguwoi dung nhap vao
         if(keyword){
             url.searchParams.set("keyword",keyword);
 
