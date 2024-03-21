@@ -1,3 +1,4 @@
+//change status
 const buttonsChangeStatus=document.querySelectorAll("[button-change-status]");
 if(buttonsChangeStatus.length>0){
     //lay ra form gia mk tao
@@ -22,3 +23,25 @@ if(buttonsChangeStatus.length>0){
         });
     });
 }
+//end chane status
+//delete item
+const buttonsDelete=document.querySelectorAll("[button-delete]");
+if(buttonsDelete.length>0){
+    buttonsDelete.forEach(button =>{
+        const formDeleteItem=document.querySelector("#form-delete-item");
+        const path=formDeleteItem.getAttribute("data-path");
+        button.addEventListener("click",()=>{
+            const isConfirm=confirm("Bạn có chắc muốn xóa sản phẩm này?")
+            if(isConfirm){
+                const id=button.getAttribute("data-id");
+                const action=`${path}/${id}?_method=DELETE`;
+                // o day la xoa nen phai gui di phuong thuc delete
+                console.log(action);
+                formDeleteItem.action=action;
+                formDeleteItem.submit();
+            }
+            
+        });
+    });
+}
+//enddelete item
