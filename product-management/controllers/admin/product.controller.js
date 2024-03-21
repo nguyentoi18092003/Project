@@ -57,7 +57,7 @@ module.exports.index= async(req,res)=>{
     });
     
 }
-//[GET]/admin/products/change-status/:status/:id
+//[PATCH]/admin/products/change-status/:status/:id
 module.exports.changeStatus= async (req,res)=>{
     // res.send("OK")
     console.log(req.params);
@@ -72,4 +72,19 @@ module.exports.changeStatus= async (req,res)=>{
     // o truoc sau khi xu li xong data nos se render ve giao dien pug trong view
     
     
+}
+//[PATCH]/admin/products/change-multi/:status/:id
+module.exports.changeMulti= async (req,res)=>{
+    console.log(req.body);
+    res.send("OK")
+    // console.log(req.params);
+    // const status=req.params.status;
+    // const id=req.params.id;
+    // await Product.updateOne({_id:id },{status:status});
+    // // _id, status o truoc la thuco tinh trong database, con cai sau la bien mk dinh nghia ra
+    // //Product la model, ham updateOne hay find o tren deu la ham o trong mongoose, ma mooge co the tac dong dc du lieu trong mongdb
+
+    // res.redirect("back");
+    // // cau lenh nay sau khi xu li xong data no se quay tro lai trang ma truoc khi no thay doi
+    // // o truoc sau khi xu li xong data nos se render ve giao dien pug trong view
 }

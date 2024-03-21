@@ -65,3 +65,66 @@ if(buttonsPagination){
     });
 }
 // End pagnination
+//checkbox Multi
+const checkboxMulti=document.querySelector("[checkbox-multi]");
+if(checkboxMulti){
+    const inputCheckAll=checkboxMulti.querySelector("input[name='checkall']");
+    const inputsId=checkboxMulti.querySelectorAll("input[name='id']");
+    inputCheckAll.addEventListener("click",() =>{
+        console.log(inputCheckAll.checked);
+        if(inputCheckAll.checked){
+            //neu o checkall dc kich thi tat ca deu dc kich
+            inputsId.forEach(input =>{
+                input.checked=true;
+            });
+         } else{
+            //neu o checkall dc bo thi tat ca deu dc bo
+            inputsId.forEach(input =>{
+                input.checked=false;
+            });
+            }
+        
+    });
+    inputsId.forEach(input=>{
+        input.addEventListener("click",()=>{
+        const countChecked= checkboxMulti.querySelectorAll("input[name='id']:checked").length;
+        if(countChecked==inputsId.length){
+            //neu so o mk tich bang tong so o khi = se tich ca o tong tren, khi bo 1 cai thi cx tu dong bo o tich
+            inputCheckAll.checked=true;
+        }
+        else{
+            inputCheckAll.checked=false;
+
+        }
+
+        });
+    });
+}
+//end checkbox Multi
+//form change multi
+const formChangeMulti=document.querySelector("[form-change-multi]");
+if(formChangeMulti){
+    formChangeMulti.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        const checkboxMulti=document.querySelector("[checkbox-multi]");
+        const inputsChecked=checkboxMulti.querySelectorAll("input[name='id']:checked");
+        if(inputsChecked.length>0){
+            let ids=[];
+            const inputIds=formChangeMulti.querySelector("input[name='ids']");
+
+            inputsChecked.forEach(input=>{
+                const id=input.value;
+                ids.push(id);
+            });
+            console.log(ids.join(", "));
+            inputIds.value=ids.join(", ");
+            formChangeMulti.submit();
+            //sau khi submit form no se link snag caii duogn dan mk mk de o thuoc tinh action
+        }
+        else{
+            alert("Vui lòng chọn ít nhất một bản ghi");
+        }
+    });
+
+}
+//end form change multi
