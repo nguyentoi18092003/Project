@@ -73,18 +73,20 @@ module.exports.changeStatus= async (req,res)=>{
     
     
 }
-//[PATCH]/admin/products/change-multi/:status/:id
+//[PATCH]/admin/products/change-multi
 module.exports.changeMulti= async (req,res)=>{
-    console.log(req.body);
-    res.send("OK")
-    // console.log(req.params);
-    // const status=req.params.status;
-    // const id=req.params.id;
-    // await Product.updateOne({_id:id },{status:status});
-    // // _id, status o truoc la thuco tinh trong database, con cai sau la bien mk dinh nghia ra
-    // //Product la model, ham updateOne hay find o tren deu la ham o trong mongoose, ma mooge co the tac dong dc du lieu trong mongdb
-
-    // res.redirect("back");
-    // // cau lenh nay sau khi xu li xong data no se quay tro lai trang ma truoc khi no thay doi
-    // // o truoc sau khi xu li xong data nos se render ve giao dien pug trong view
+    const type=req.body.type;
+    const ids=req.body.ids.split(", ");
+    switch(type){
+        case "active":
+            await Product.updateMany({ _id: {$in: ids}}, {status:"active"});
+            break;
+        case "inactive":
+            await Product.updateMany({ _id: {$in: ids}}, {status:"inactive"});
+            break;
+        default:
+            break;
+    }
+    res.redirect("back");
+    
 }
